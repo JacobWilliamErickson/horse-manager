@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="landing.html">Home</a>
+        <a href="map.html">Map</a>
+        <a href="journal.html">Journal</a>
+        <b>HorseManager</b>
+            <img id="logo" src="images/horselogo.png" alt="horse icon">
+      </nav>
+    <div class = 'barns'>
+        <barn1>
+            Brown Barn
+            <row>
+                <item class = "drop-zone">1</item>
+                <item class = "drop-zone">2</item>
+            </row>
+            <row>
+                <item class = "drop-zone">3</item>
+                <item class = "drop-zone">4</item>
+            </row>
+            <row>
+                <item class = "drop-zone">5</item>
+                <item class = "drop-zone">6</item>
+            </row>
+            <row>
+                <item class = "drop-zone">7</item>
+                <item class = "drop-zone">8</item>
+            </row>
+            <row>
+                <item class = "drop-zone">9</item>
+                <item class = "drop-zone">10</item>
+            </row>
+        </barn1>
+        <barn2>
+            Red Barn
+            <row>
+                <item class = "drop-zone">11</item>
+                <item class = "drop-zone">12</item>
+            </row>
+            <row>
+                <item class = "drop-zone">13</item>
+                <item class = "drop-zone">14</item>
+            </row>
+            <row>
+                <item class = "drop-zone">15</item>
+                <item class = "drop-zone">16</item>
+            </row>
+            <row>
+                <item class = "drop-zone">17</item>
+                <item class = "drop-zone">18</item>
+            </row>
+            <row>
+                <item class = "drop-zone">19</item>
+                <item class = "drop-zone">20</item>
+            </row>
+        </barn2>
+    </div>
+    <section class ="drop-zone" id ="freehorses">   
+    
+    </section>
+    <form id="newHorse">
+        <input 
+            type='text'
+            id="name"
+            placeholder="Name:"/>
+        <input 
+            type='text'
+            id="barnname"
+            placeholder='Barn Name:'/>
+        <input 
+            type='text'
+            id="owner"
+            placeholder='Who is the Owner?'/>
+        <input 
+            type='text'
+            id="age"
+            placeholder='How old is the horse?'/>
+        <input 
+            type='text'
+            id="img"
+            placeholder='Paste an image URL'/>
+        <button>add horse</button>
+    </form>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="map.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+body{
+    margin-top: 70px;
+    background-image:  url(farmback3.avif);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;}
+.navbar {
+    overflow: hidden;
+    background-color: lightgray;opacity: 0.8; filter: alpha(opacity=50);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+
+  }
+  .navbar a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition-duration: 0.25s;
+  }
+  .navbar b,#logo{
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-right: 10px;
+    padding-left: 5px;
+    text-decoration: none;
+    transition-duration: 0.25s;
+  }
+  #logo{
+    height: 25px;
+  }
+  .navbar a:hover {
+    background-color: #dab990;
+    color: #81603d;
+  }
+  .navbar a:active {
+    background-color: white;
+    color: #81603d;
+  }
+  
+row{
+    display: flex;
+    justify-content: center;
+    padding: 5px;}
+item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DAB990;
+    width: 200px;
+    height: 100px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 20px;
+    color: black;
+}
+barn1{
+    color: #DAB990;
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./brownwood.jpg') ;
+    border-radius: 20px;
+    width: 420px;
+    height: 600px;
+    padding: 5px;
+    margin: 5px;
+}
+.barns{
+    display: flex;
+}
+barn2{
+    color:  #e5c9a7;
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./redwood.jpeg') ;
+    border-radius: 20px;
+    width: 420px;
+    height: 600px;
+    padding: 5px;
+    margin: 5px;
+}
+#freehorse{
+    background-color: #81603d;
+    width: 80vw;
+    height: 500px;
+}
+.horse-cover-image{
+    width: 50px;
+    margin: 5px;
+}
+.horse-card {
+    font-size: small;
+    background-color: rgb(129, 96, 61);
+    color: white;
+    width: 190px;
+    height: 90px;
+    padding: 5px;
+    margin: 20px; 
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    line-height: .6;
+    
+  }
+  #newHorse{
+ display: flex;
+ flex-direction: column;
+ width: 200px;
+ border-radius: 15px;
+  }
+  #freehorses{
+    display: flex;
+    width: 100vw;
+  }
