@@ -1,5 +1,4 @@
 require("dotenv").config();
-const horses = require("./db.json");
 const { CONNECTION_STRING } = process.env;
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(CONNECTION_STRING, {
@@ -21,7 +20,7 @@ module.exports = {
     const {name,barnname,owner,age,imageURL} = req.body;
     sequelize
       .query(`
-    insert into horse_table (name,barnname,owner,age,imageURL) values ('${name}','${barnname}','${owner}','${age}','${imageURL}')`)
+    insert into horse_table (name,barnname,owner,age,imageURL,position) values ('${name}','${barnname}','${owner}','${age}','${imageURL}','0')`)
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(err));
   },
@@ -39,10 +38,11 @@ module.exports = {
         barnname varchar,
         owner varchar,
         age varchar,
-        imageURL varchar
+        imageURL varchar,
+        position integer
         );
 
-      insert into horse_table (name,barnname,owner,age,imageURL) values ('Midnight Sun','Sunny','Roger','10','horse4.jpg'),('SunKnight Mid','Middy','Roger','19','horse2.jpg');
+      insert into horse_table (name,barnname,owner,age,imageURL,position) values ('Midnight Sun','Sunny','Roger','10','horse4.jpg',0),('SunKnight Mid','Middy','Roger','19','horse2.jpg',1);
       `)
       .then(() => {
         console.log("DB seeded!");
