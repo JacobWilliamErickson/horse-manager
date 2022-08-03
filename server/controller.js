@@ -2,7 +2,6 @@ require("dotenv").config();
 const horses = require("./db.json");
 const { CONNECTION_STRING } = process.env;
 const Sequelize = require("sequelize");
-let horseId = 3;
 const sequelize = new Sequelize(CONNECTION_STRING, {
   dialect: "postgres",
   dialectOptions: {
@@ -15,21 +14,16 @@ module.exports = {
   getHorses: (req, res) => {
     sequelize
       .query(`select * from horse_table`)
-      .then((dbRes) => res.status(200).send(dbRes[0]))
+      .then((dbRes) =>res.status(200).send(dbRes[0]))
       .catch((err) => console.log(err));
   }, 
   createHorse: (req, res) => {
     const {name,barnname,owner,age,imageURL} = req.body;
-    let newhorse = {
-      horse_id: horseId,
-      name: name,
-      barnname,owner,age,
-      imageURL
-    };
-    console.log(newhorse)
-    horses.push(newhorse);
-    res.status(200).send(horses);
-    horseId++
+    sequelize
+      .query(`
+    insert into horse_table (name,barnname,owner,age,imageURL) values ('${name}','${barnname}','${owner}','${age}','${imageURL}')`)
+      .then((dbRes) => res.status(200).send(dbRes[0]))
+      .catch((err) => console.log(err));
   },
   updateHorse: (req, res) => {
     res.status(200).send(horses);
@@ -48,7 +42,7 @@ module.exports = {
         imageURL varchar
         );
 
-      insert into horse_table (name,barnname,owner,age,imageURL) values ('Midnight Sun','Sunny','Roger','10','./horse4.jpg'),('SunKnight Mid','Middy','Roger','19','./horse2.jpg');
+      insert into horse_table (name,barnname,owner,age,imageURL) values ('Midnight Sun','Sunny','Roger','10','horse4.jpg'),('SunKnight Mid','Middy','Roger','19','horse2.jpg');
       `)
       .then(() => {
         console.log("DB seeded!");

@@ -132,3 +132,6 @@ barn2{
     display: flex;
     width: 100vw;
   }
+  .drop-zone--over{
+    opacity: .75;
+  }
