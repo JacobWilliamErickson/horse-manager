@@ -78,7 +78,7 @@ item {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(168, 168, 168,.8);
+  background-color: rgba(168, 168, 168, 0.8);
   width: 16vw;
   height: 11vh;
   margin-left: 0.5vw;
@@ -154,6 +154,7 @@ barn2 {
   box-shadow: 5px 5px 5px black;
   justify-content: space-between;
   font-weight: normal;
+  margin: 5px;
 }
 #newHorse {
   display: flex;
@@ -185,8 +186,7 @@ form {
   border: solid 1px black !important;
   border-radius: 5%;
 }
-.horse-card-info{
+.horse-card-info {
   display: flex;
   align-items: center;
 }
-

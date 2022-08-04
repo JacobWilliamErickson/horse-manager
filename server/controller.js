@@ -69,8 +69,8 @@ module.exports = {
     console.log(searchcat)
     console.log(searchtext)
     sequelize
-       .query(`select * from horse_table where ${searchcat} = '${searchtext}';`)
-       .then((dbRes) => console.log(dbRes[0]))
+       .query(`select * from horse_table where ${searchcat} like '%${searchtext}%';`)
+       .then((dbRes) => res.status(200).send(dbRes[0]))
        .catch((err) => console.log(err));
   },
 };
