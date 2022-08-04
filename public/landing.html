@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="landing.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <a href="landing.html">Home</a>
+        <a href="map.html">Map</a>
+        <a href="journal.html">Journal</a>
+        <b>HorseManager</b>
+        <img id="logo" src="horselogo.png" alt="horse icon" />
+      </nav>
+    
+        <section class = 'hero'>
+            <h1>Welcome</h1>
+            <div class="search-container">
+                <form id = 'search'>
+                    <input type="text" id="searchtext" placeholder="Search.." />
+                    <select type="dropdown" id="searchcat" ">
+                        <option class="searchcat" id="name">name</option>
+                        <option class="searchcat" id="barnname">barnname</option>
+                        <option class="searchcat" id="owner">owner</option>
+                        <option class="searchcat" id="age">age</option>
+                    </select>
+                  <button type="submit">Search</button>
+                </form>
+            </div>
+
+        </div>
+      </section>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="landing.js"></script>
+</body>
+</html>

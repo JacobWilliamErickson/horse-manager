@@ -12,24 +12,36 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 module.exports = {
   getHorses: (req, res) => {
     sequelize
-      .query(`select * from horse_table`)
-      .then((dbRes) =>res.status(200).send(dbRes[0]))
+      .query(`select * from horse_table;`)
+      .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(err));
-  }, 
-  createHorse: (req, res) => {
-    const {name,barnname,owner,age,imageURL} = req.body;
+  },
+  moveHorse: (req, res) => {
+    const { stall, id } = req.body;
     sequelize
-      .query(`
-    insert into horse_table (name,barnname,owner,age,imageURL,position) values ('${name}','${barnname}','${owner}','${age}','${imageURL}','0')`)
+      .query(
+        `update horse_table set position = ${stall} where horse_id = ${id}`
+      )
+      .then((dbRes) => res.status(200).send(dbRes[0]))
+      .catch((err) => console.log(err));
+  },
+  createHorse: (req, res) => {
+    const { name, barnname, owner, age, imageURL } = req.body;
+    sequelize
+      .query(
+        `
+    insert into horse_table (name,barnname,owner,age,imageURL,position) values ('${name}','${barnname}','${owner}','${age}','${imageURL}','0')`
+      )
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(err));
   },
   updateHorse: (req, res) => {
     res.status(200).send(horses);
-  }, 
+  },
   seed: (req, res) => {
     sequelize
-      .query(`
+      .query(
+        `
       drop table if exists horse_table;
 
       create table horse_table (
@@ -43,11 +55,22 @@ module.exports = {
         );
 
       insert into horse_table (name,barnname,owner,age,imageURL,position) values ('Midnight Sun','Sunny','Roger','10','horse4.jpg',0),('SunKnight Mid','Middy','Roger','19','horse2.jpg',1);
-      `)
+      `
+      )
       .then(() => {
         console.log("DB seeded!");
         res.sendStatus(200);
       })
       .catch((err) => console.log("error seeding DB", err));
-    }
-}
+  },
+
+  changeSearchValues: (req, res) => {
+    const {searchcat,searchtext}=req.body
+    console.log(searchcat)
+    console.log(searchtext)
+    sequelize
+       .query(`select * from horse_table where ${searchcat} = '${searchtext}';`)
+       .then((dbRes) => console.log(dbRes[0]))
+       .catch((err) => console.log(err));
+  },
+};

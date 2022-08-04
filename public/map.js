@@ -8,15 +8,17 @@ function displayHorses(arr) {
   }
 }
 const horsesCallback = ({ data: horses }) => displayHorses(horses);
+//error message
 const errCallback = (err) => console.log(err);
 const getAllHorses = () => {
   horsecardnum = 0;
   axios.get(baseURL).then(horsesCallback).catch(errCallback);
 };
-const createHorse = (body) => {
-  axios.post(baseURL, body).then(horsesCallback).catch(errCallback);
+const createHorse = async (body) => {
+  await axios.post(baseURL, body).then(horsesCallback).catch(errCallback);
   getAllHorses();
 };
+//new horse submit handler
 function submitHandler(e) {
   e.preventDefault();
   let name = document.querySelector("#name");
@@ -34,72 +36,93 @@ function submitHandler(e) {
   };
 
   createHorse(bodyObj);
-
+//clearing values
   name.value = "";
   barnname.value = "";
   owner.value = "";
   age.value = "";
   imageURL.value = "";
 }
+//makes individual cards in html
 const makeHorseCard = (horse) => {
   const horseCard = document.createElement("div");
   horseCard.classList.add("horse-card");
   horseCard.setAttribute("draggable", true);
   horseCard.setAttribute("id", `${horse.horse_id}`);
-  horseCard.innerHTML = `<img alt='horse cover image' src=${horse.imageurl} class="horse-cover-image" draggable = 'false'/>
-    <div class = 'horse-info'>
+  horseCard.innerHTML = `
+  <div class = 'horse-card-info'>
+        <img alt='horse cover image' src=${horse.imageurl} class="horse-cover-image" draggable = 'false'/>
+        <section class='horse-info'>
         <p class="horse-name">${horse.name}</p>
         <p class="horse-barnname">Barn Name: ${horse.barnname}</p>
         <p class="horse-owner">Owner: ${horse.owner}</p>
-        <p class="horse-age">Age: ${horse.age}</p>
-    </div>
+        <section>
+        </div>
+        <p class="horse-age">${horse.age}</p>
     `;
-    console.log(document.querySelector(`#stall${horse.position}`))
 
- if(document.querySelector(`#stall${horse.position}`)!==null){
-    let location = document.querySelector(`#stall${horse.position}`)
+  let location = document.querySelector(`#stall${horse.position}`);
+  //if the horse isn't already in the box and there is a stall to match its postion put card in there
+  if (
+    document.querySelector(`#stall${horse.position}`) !== null &&
+    location.querySelector("div") === null
+  ) {
     const stallnum = location.querySelector("p");
     stallnum.setAttribute("hidden", "true");
     location.appendChild(horseCard);
- } else{
-     horsesContainer.appendChild(horseCard);
- }
+    //if it can't find a place. place in free horses
+  } else if (document.querySelector(`#stall${horse.position}`) === null) {
+    horsesContainer.appendChild(horseCard);
+  }
+  //making draggable object
   const draggable = horseCard;
   draggable.addEventListener("dragstart", (e) => {
     e.dataTransfer.setData("text/plain", draggable.id);
   });
 };
 
-const updateHorses = () => {};
-
 form.addEventListener("submit", submitHandler);
 getAllHorses();
 
+//DROP ZONE STUFF
 for (const dropZone of document.querySelectorAll(".drop-zone")) {
   const stallnum = dropZone.querySelector("p");
+  //dragover increases opacity
   dropZone.addEventListener("dragover", (e) => {
     e.preventDefault();
     dropZone.classList.add("drop-zone--over");
   });
-
+//dragleave sets opacity back
   dropZone.addEventListener("dragleave", (e) => {
     e.preventDefault();
     dropZone.classList.remove("drop-zone--over");
-   
   });
+//when ending a drag, number returns to empty stalls
   document.addEventListener("dragend", (e) => {
-    if(dropZone.querySelector('div')===null){stallnum.removeAttribute("hidden");}
+    if (dropZone.querySelector("div") === null) {
+      stallnum.removeAttribute("hidden");
+    }
   });
-
-
+//drop moves elements and sents put request to change position in database
   dropZone.addEventListener("drop", (e) => {
     e.preventDefault();
     const droppedElementId = e.dataTransfer.getData("text/plain");
     const droppedElement = document.getElementById(droppedElementId);
-    if(dropZone.querySelector('div')===null || dropZone.id === 'freehorses'){dropZone.appendChild(droppedElement);}
+    if (
+      dropZone.querySelector("div") === null ||
+      dropZone.id === "freehorses"
+    ) {
+      dropZone.appendChild(droppedElement);
+    }
     stallnum.setAttribute("hidden", "true");
     dropZone.classList.remove("drop-zone--over");
+    console.log(droppedElement.id);
+    axios
+      .put(`${baseURL}`, {
+        stall: dropZone.dataset.stall,
+        id: droppedElement.id,
+      })
+      .then(getAllHorses())
+      .catch(errCallback);
   });
-
-  
 }

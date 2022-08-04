@@ -1,0 +1,192 @@
+body {
+  margin-top: 50px;
+  background: hsla(186, 33%, 94%, 1);
+
+  background: linear-gradient(
+    90deg,
+    hsla(186, 33%, 94%, 1) 0%,
+    hsla(216, 41%, 79%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(186, 33%, 94%, 1) 0%,
+    hsla(216, 41%, 79%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(186, 33%, 94%, 1) 0%,
+    hsla(216, 41%, 79%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#EBF4F5", endColorstr="#B5C6E0", GradientType=1 );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.navbar {
+  overflow: hidden;
+  background-color: rgb(168, 168, 168);
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition-duration: 0.25s;
+}
+.navbar b,
+#logo {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-right: 10px;
+  padding-left: 5px;
+  text-decoration: none;
+  transition-duration: 0.25s;
+}
+#logo {
+  height: 25px;
+}
+.navbar a:hover {
+  background-color: #dab990;
+  color: #81603d;
+}
+.navbar a:active {
+  background-color: white;
+  color: #81603d;
+}
+
+row {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(168, 168, 168,.8);
+  width: 16vw;
+  height: 11vh;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  border-radius: 10%;
+  color: black;
+  border: solid 2px black !important;
+}
+barn1 {
+  color: #f2f2f2f2;
+  font-weight: bold;
+  font-size: larger;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./brownwood.jpg");
+  border-radius: 5%;
+  width: 35vw;
+  height: 73vh;
+  padding: 2vh;
+  padding-top: 1vh;
+  margin: 2vh;
+  box-shadow: 7px 7px 5px black;
+}
+.barns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+barn2 {
+  color: #f2f2f2;
+  font-size: larger;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./redwoodbarn.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  border-radius: 5%;
+  width: 35vw;
+  height: 73vh;
+  padding: 2vh;
+  padding-top: 1vh;
+  margin: 2vh;
+  box-shadow: 7px 7px 5px black;
+}
+#freehorses {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+.horse-cover-image {
+  width: 50px;
+  margin: 5px;
+}
+.horse-card {
+  font-size: 2vh;
+  background-color: rgb(91, 65, 36);
+  opacity: 1;
+  color: white;
+  width: 14vw;
+  height: 8vh;
+  padding: 0.7vw;
+  display: flex;
+  align-items: center;
+  border-radius: 10%;
+  line-height: 0.6;
+  box-shadow: 5px 5px 5px black;
+  justify-content: space-between;
+  font-weight: normal;
+}
+#newHorse {
+  display: flex;
+  flex-direction: column;
+  width: 14vw;
+  border-radius: 15px;
+}
+#freehorses {
+  display: flex;
+  width: 100vw;
+}
+.drop-zone--over {
+  opacity: 0.75;
+}
+.horse-name {
+  font-weight: bolder;
+  line-height: 1;
+}
+form {
+  border: solid 2px black !important;
+  width: 15vw;
+  height: 25vh;
+  padding: 1vw;
+  background-color: #81603d;
+  box-shadow: 5px 5px 5px black;
+}
+.horse-cover-image {
+  height: 10vh;
+  border: solid 1px black !important;
+  border-radius: 5%;
+}
+.horse-card-info{
+  display: flex;
+  align-items: center;
+}
+
