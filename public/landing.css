@@ -111,19 +111,24 @@ select {
 }
 .horse-card {
   background-color: #81603d;
-  font-size: 2vh;
+  font-size: 2.5vh;
+  line-height: 1px;
   color: white;
-  padding: 5px;
   align-items: center;
-  justify-content: space-between;
   margin: 5px;
   width: 60vw;
+  height: 30vh;
+  border-radius: 10px;
 }
 .horse-cover-image {
-  width: 50px;
-  margin: 5px;
+  height: 20vh;
+  margin: 15px;
 }
 .horse-card-info {
   display: flex;
   align-items: center;
+}
+.horse-info{
+    display: flex;
+    flex-direction: column;
 }

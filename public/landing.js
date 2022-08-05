@@ -20,7 +20,6 @@ function submitsearchHandler(e) {
     e.preventDefault();
     let searchcat = document.querySelector("#searchcat");
     let searchtext = document.querySelector("#searchtext");
-
     let bodyObj = {
         searchcat:searchcat.value,
         searchtext:searchtext.value,
@@ -33,7 +32,7 @@ function submitsearchHandler(e) {
     axios.post('http://localhost:4004/api/landing.html',bodyObj).then(horsesCallback).catch(errCallback);
   }
   const makeHorseCard = (horse) => {
-    const horseCard = document.createElement("div");
+    let horseCard = document.createElement("div");
     horseCard.classList.add("horse-card");
     horseCard.setAttribute("draggable", true);
     horseCard.setAttribute("id", `${horse.horse_id}`);
@@ -44,10 +43,19 @@ function submitsearchHandler(e) {
           <p class="horse-name">${horse.name}</p>
           <p class="horse-barnname">Barn Name: ${horse.barnname}</p>
           <p class="horse-owner">Owner: ${horse.owner}</p>
+          <p class="horse-age">${horse.age}</p>
           <section>
           </div>
-          <p class="horse-age">${horse.age}</p>
       `;
+      let section = horseCard.querySelector('.horse-info') 
+      if (horse.position>0&&horse.position<11){
+        section.innerHTML += `<p class="horse-location">Location: Brown Barn Stall ${horse.position}</p>`
+      } else if (horse.position>10&&horse.position<20){
+        section.innerHTML += `<p class="horse-location">Location: Red Barn Stall ${horse.position}</p>`
+      } else{
+        section.innerHTML += `<p class="horse-location">Location: In the Pasture </p>`
+      }
+      console.log(horse.position)
       horsesContainer.appendChild(horseCard);
     }
 

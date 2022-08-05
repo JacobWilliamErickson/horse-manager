@@ -158,7 +158,6 @@ barn2 {
 }
 #newHorse {
   display: flex;
-  flex-direction: column;
   width: 14vw;
   border-radius: 15px;
 }
@@ -174,9 +173,9 @@ barn2 {
   line-height: 1;
 }
 form {
+  display: flex;
+  flex-direction: column;
   border: solid 2px black !important;
-  width: 15vw;
-  height: 25vh;
   padding: 1vw;
   background-color: #81603d;
   box-shadow: 5px 5px 5px black;
