@@ -43,7 +43,7 @@ function submitsearchHandler(e) {
           <p class="horse-name">${horse.name}</p>
           <p class="horse-barnname">Barn Name: ${horse.barnname}</p>
           <p class="horse-owner">Owner: ${horse.owner}</p>
-          <p class="horse-age">${horse.age}</p>
+          <p class="horse-age">Age: ${horse.age}</p>
           <section>
           </div>
       `;
