@@ -12,24 +12,13 @@ function displayHorses(arr) {
     horsecardnum = 0;
     axios.get(baseURL).then(horsesCallback).catch(errCallback);
   };
-  const createHorse = async (body) => {
-    await axios.post(baseURL, body).then(horsesCallback).catch(errCallback);
-    getAllHorses();
-  };
 function submitsearchHandler(e) {
     e.preventDefault();
     let searchcat = document.querySelector("#searchcat");
     let searchtext = document.querySelector("#searchtext");
-    let bodyObj = {
-        searchcat:searchcat.value,
-        searchtext:searchtext.value,
-    };
-    
-    console.log(searchcat)
+    axios.get(`http://localhost:4004/api/landing.html?searchcat=${searchcat.value}&searchtext=${searchtext.value}`,).then(horsesCallback).catch(errCallback);
     searchcat.value = "";
     searchtext.value = "";
-    console.log(bodyObj)
-    axios.post('http://localhost:4004/api/landing.html',bodyObj).then(horsesCallback).catch(errCallback);
   }
   const makeHorseCard = (horse) => {
     let horseCard = document.createElement("div");

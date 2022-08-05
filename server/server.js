@@ -18,6 +18,6 @@ app.post('/seed', seed)
 app.get(`${baseURL}`,getHorses)
 app.put(`${baseURL}`,moveHorse)
 app.post(`${baseURL}`,createHorse)
-app.post('/api/landing.html',changeSearchValues)
+app.get('/api/landing.html',changeSearchValues)
 
 app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))

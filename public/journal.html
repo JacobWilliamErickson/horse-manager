@@ -15,6 +15,26 @@
         <b>HorseManager</b>
         <img id="logo" src="horselogo.png" alt="horse icon" />
       </nav>
-    <h1>Journal</h1>
+    <form id ='journal-form'>
+        <select type="dropdown" id="horse-drop-down">    
+             
+        </select>
+        <section id ='journal-entry'>
+        <header>
+            <input type="text" id="title" placeholder="Title"/>
+            <input type="date" id="date" placeholder="Date"/>
+            <select type="dropdown" id="searchcat" ">
+                <option value="" disabled selected>Entry type</option>
+                <option class="type" id="health">Health</option>
+                <option class="type" id="training">Training</option>
+                <option class="type" id="other">Other</option>
+            </select>
+        </header>
+        <textarea id="journal-content" rows="5" cols="60"></textarea>
+        <button type="submit">Submit</button>
+        </section>
+    </form>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="journal.js"></script>
 </body>
 </html>

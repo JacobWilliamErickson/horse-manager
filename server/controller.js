@@ -42,6 +42,7 @@ module.exports = {
     sequelize
       .query(
         `
+        drop table if exists journal_table;
       drop table if exists horse_table;
 
       create table horse_table (
@@ -53,8 +54,19 @@ module.exports = {
         imageURL varchar,
         position integer
         );
+        create table journal_table (
+          horse_id int REFERENCES horse_table(horse_id),
+          title varchar, 
+          date date,
+          type varchar,
+          summary varchar(500),
+          journal_id serial primary key
+          );
 
       insert into horse_table (name,barnname,owner,age,imageURL,position) values ('Midnight Sun','Sunny','Roger','10','horse4.jpg',0),('SunKnight Mid','Middy','Roger','19','horse2.jpg',1);
+
+      insert into journal_table(horse_id,title,date,type,summary) values (1,'He got shoes','2017-06-01T08:30'
+      ,'health','The farrier came and got his feet looking good again, requested we put on thicked shoes so we are trying it out')
       `
       )
       .then(() => {
@@ -65,12 +77,14 @@ module.exports = {
   },
 
   changeSearchValues: (req, res) => {
-    const {searchcat,searchtext}=req.body
-    console.log(searchcat)
-    console.log(searchtext)
+    const { searchcat, searchtext } = req.query;
+    console.log(searchcat);
+    console.log(searchtext);
     sequelize
-       .query(`select * from horse_table where ${searchcat} like '%${searchtext}%';`)
-       .then((dbRes) => res.status(200).send(dbRes[0]))
-       .catch((err) => console.log(err));
+      .query(
+        `select * from horse_table where ${searchcat} like '%${searchtext}%';`
+      )
+      .then((dbRes) => res.status(200).send(dbRes[0]))
+      .catch((err) => console.log(err));
   },
 };
