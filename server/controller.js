@@ -16,6 +16,32 @@ module.exports = {
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(err));
   },
+  getJournals: (req, res) => {
+      console.log( req.query.searchcat)
+      if(req.query.searchcat===undefined){
+
+        sequelize
+          .query(`select * from horse_table
+          join journal_table on horse_table.horse_id = journal_table.horse_id
+          ORDER BY date desc;`)
+          .then((dbRes) => res.status(200).send(dbRes[0]))
+          .catch((err) => console.log(err));
+      }
+      else{
+        const { searchcat, searchtext } = req.query;
+        sequelize
+          .query(
+            `select * from horse_table
+            join journal_table on horse_table.horse_id = journal_table.horse_id
+            where ${searchcat} like '%${searchtext}%'
+            ORDER BY date desc`
+          )
+          .then((dbRes) => res.status(200).send(dbRes[0]))
+          .catch((err) => console.log(err));
+
+      }
+    
+  },
   moveHorse: (req, res) => {
     const { stall, id } = req.body;
     sequelize
@@ -31,6 +57,17 @@ module.exports = {
       .query(
         `
     insert into horse_table (name,barnname,owner,age,imageURL,position) values ('${name}','${barnname}','${owner}','${age}','${imageURL}','0')`
+      )
+      .then((dbRes) => res.status(200).send(dbRes[0]))
+      .catch((err) => console.log(err));
+  },
+
+  submitentry: (req, res) => {
+    const { horse,title,date,type,summary} = req.body;
+    sequelize
+      .query(
+        `
+        insert into journal_table(horse_id,title,date,type,summary) values  ('${horse}','${title}','${date}','${type}','${summary})`
       )
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(err));
@@ -59,15 +96,17 @@ module.exports = {
           title varchar, 
           date date,
           type varchar,
-          summary varchar(500),
+          summary varchar(5000),
           journal_id serial primary key
           );
 
       insert into horse_table (name,barnname,owner,age,imageURL,position) values ('Midnight Sun','Sunny','Roger','10','horse4.jpg',0),('SunKnight Mid','Middy','Roger','19','horse2.jpg',1);
 
       insert into journal_table(horse_id,title,date,type,summary) values (1,'He got shoes','2017-06-01T08:30'
-      ,'health','The farrier came and got his feet looking good again, requested we put on thicked shoes so we are trying it out')
+      ,'health','The farrier came and got his feet looking good again, requested we put on thicked shoes so we are trying it out');
       `
+
+      
       )
       .then(() => {
         console.log("DB seeded!");
@@ -78,8 +117,6 @@ module.exports = {
 
   changeSearchValues: (req, res) => {
     const { searchcat, searchtext } = req.query;
-    console.log(searchcat);
-    console.log(searchtext);
     sequelize
       .query(
         `select * from horse_table where ${searchcat} like '%${searchtext}%';`

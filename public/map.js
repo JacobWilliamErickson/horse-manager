@@ -11,7 +11,6 @@ const horsesCallback = ({ data: horses }) => displayHorses(horses);
 //error message
 const errCallback = (err) => console.log(err);
 const getAllHorses = () => {
-  horsecardnum = 0;
   axios.get(baseURL).then(horsesCallback).catch(errCallback);
 };
 const createHorse = async (body) => {
@@ -70,6 +69,8 @@ const makeHorseCard = (horse) => {
     const stallnum = location.querySelector("p");
     stallnum.setAttribute("hidden", "true");
     location.appendChild(horseCard);
+    location.classList.remove("empty");
+    location.classList.add('occupied')
     //if it can't find a place. place in free horses
   } else if (document.querySelector(`#stall${horse.position}`) === null) {
     horsesContainer.appendChild(horseCard);
@@ -101,6 +102,8 @@ for (const dropZone of document.querySelectorAll(".drop-zone")) {
   document.addEventListener("dragend", (e) => {
     if (dropZone.querySelector("div") === null) {
       stallnum.removeAttribute("hidden");
+      dropZone.classList.add('empty')
+      dropZone.classList.remove('occupied')
     }
   });
 //drop moves elements and sents put request to change position in database
@@ -108,21 +111,36 @@ for (const dropZone of document.querySelectorAll(".drop-zone")) {
     e.preventDefault();
     const droppedElementId = e.dataTransfer.getData("text/plain");
     const droppedElement = document.getElementById(droppedElementId);
+    console.log( dropZone.querySelector("div"))
     if (
-      dropZone.querySelector("div") === null ||
-      dropZone.id === "freehorses"
+     dropZone.classList.contains('empty') && dropZone.id !== "freehorses"
     ) {
       dropZone.appendChild(droppedElement);
+      dropZone.classList.remove('empty')
+      dropZone.classList.add("occupied");
+      stallnum.setAttribute("hidden", "true");
+      dropZone.classList.remove("drop-zone--over");
+      axios
+        .put(`${baseURL}`, {
+          stall: dropZone.dataset.stall,
+          id: droppedElement.id,
+        })
+        .then(getAllHorses())
+        .catch(errCallback);
+
+
+    } else if(dropZone.classList.contains('empty') && dropZone.id) {dropZone.appendChild(droppedElement);
+      dropZone.classList.remove("drop-zone--over");
+      axios
+        .put(`${baseURL}`, {
+          stall: dropZone.dataset.stall,
+          id: droppedElement.id,
+        })
+        .then(getAllHorses())
+        .catch(errCallback);
+    } 
+    else{
+      dropZone.classList.remove("drop-zone--over");
     }
-    stallnum.setAttribute("hidden", "true");
-    dropZone.classList.remove("drop-zone--over");
-    console.log(droppedElement.id);
-    axios
-      .put(`${baseURL}`, {
-        stall: dropZone.dataset.stall,
-        id: droppedElement.id,
-      })
-      .then(getAllHorses())
-      .catch(errCallback);
   });
 }

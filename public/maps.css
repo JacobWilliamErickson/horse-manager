@@ -104,11 +104,13 @@ barn1 {
   margin: 2vh;
   box-shadow: 7px 7px 5px black;
 }
+
 .barns {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 barn2 {
   color: #f2f2f2;
   font-size: larger;

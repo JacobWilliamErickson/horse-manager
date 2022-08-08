@@ -23,7 +23,7 @@
         <header>
             <input type="text" id="title" placeholder="Title"/>
             <input type="date" id="date" placeholder="Date"/>
-            <select type="dropdown" id="searchcat" ">
+            <select type="dropdown" id="type" ">
                 <option value="" disabled selected>Entry type</option>
                 <option class="type" id="health">Health</option>
                 <option class="type" id="training">Training</option>
@@ -34,6 +34,20 @@
         <button type="submit">Submit</button>
         </section>
     </form>
+    <div class="search-container">
+        <form id = 'search' role="search">
+            <input type="search" id="searchtext" placeholder="Search.." name = 'q'/>
+            <select type="dropdown" id="searchcat">
+                <option value="" disabled selected>Search Type</option>
+                <option class="searchcat" id="name">name</option>
+                <option class="searchcat" id="title">title</option>
+                <option class="searchcat" id="date">date</option>
+                <option class="searchcat" id="type">type</option>
+            </select>
+          <button type="submit">Search</button>
+        </form>
+    <section id ='journalbox'>
+    </section>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="journal.js"></script>
 </body>
