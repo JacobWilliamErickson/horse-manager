@@ -8,13 +8,13 @@ const baseURL = `/api/map.html`
 const {getHorses,createHorse,updateHorse,seed,moveHorse,changeSearchValues,getJournals,submitentry}= require('./controller')
 app.use(express.json())
 app.use(cors())
-app.use(express.static(path.join(__dirname, "/../public")));
+app.use(express.static("public"));
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '/public/landing.html'))
+  res.sendFile(path.join(__dirname, '../public/landing.html'))
 })
-app.get("/", (req, res) => {
-    res.sendFile(path.resolve("/public/landing.html"));
-  });
+// app.get("/", (req, res) => {
+//     res.sendFile(path.resolve("/public/landing.html"));
+//   });
 
 app.post('/seed', seed)
 app.get(`${baseURL}`,getHorses)
