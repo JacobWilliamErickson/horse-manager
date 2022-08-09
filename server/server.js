@@ -10,8 +10,11 @@ const {getHorses,createHorse,updateHorse,seed,moveHorse,changeSearchValues,getJo
 app.use(express.json())
 app.use(cors())
 app.use(express.static(path.join(__dirname, "/../public")));
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '/public/index.html'))
+})
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/landing.html"));
+    res.sendFile(path.resolve("/public/landing.html"));
   });
 
 app.post('/seed', seed)
