@@ -133,3 +133,12 @@ select {
     display: flex;
     flex-direction: column;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .horse-card {
+    font-size: xx-small;
+    width: 80vw;
+  }
+ 
+}

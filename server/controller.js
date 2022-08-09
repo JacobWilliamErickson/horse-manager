@@ -16,6 +16,7 @@ module.exports = {
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(err));
   },
+
   getJournals: (req, res) => {
       console.log( req.query.searchcat)
       if(req.query.searchcat===undefined){
@@ -51,6 +52,7 @@ module.exports = {
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(err));
   },
+
   createHorse: (req, res) => {
     const { name, barnname, owner, age, imageURL } = req.body;
     sequelize
@@ -72,9 +74,11 @@ module.exports = {
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(err));
   },
+
   updateHorse: (req, res) => {
     res.status(200).send(horses);
   },
+
   seed: (req, res) => {
     sequelize
       .query(
@@ -116,8 +120,6 @@ module.exports = {
       ('Apache','Patches','Linda','19','https://www.tophorse.com.au/images/ResizedImages/31-12-12-138511Image2_w577h600.jpg',0);
 
 
-
-
       insert into journal_table(horse_id,title,date,type,summary) values 
       (8,'Deworming','2019-08-01T08:30'
       ,'health','Routine Deworming visit, fly-spray also applied'),
@@ -125,11 +127,10 @@ module.exports = {
       ,'health','The thicker shoes are doing well, just a trim today.'),
       (8,'Farrier Visit','2022-04-20T08:30'
       ,'health','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
-      (5,'Breeding Soundess Exam','2022-06-01T08:30'
+      (5,'B.S.E','2022-06-01T08:30'
       ,'health','Alaska is still healthy to breed, we discussed different studs and timing most likely August and Dual Rey'),
       (3,'Wound Fix','2022-06-01T08:30'
-      ,'health','High Brow kicked a fence and cut just his right hind leg, no muscles cut just flesh, just one stich and wrapped up. Still sound to ride and train. We need to rewrap weekly'),
-
+      ,'health','High Brow kicked a fence and cut just above his right hind leg, no muscles cut just flesh, just one stich and wrapped up. Still sound to ride and train. We need to rewrap weekly'),
 
 
       (4,'Flag Day / Snaffle','2022-08-15T08:30'
@@ -159,8 +160,6 @@ module.exports = {
       (8,'Purchase','2018-06-01T08:30'
       ,'other','He has earned 110,000 already with lots of life and a good stud fee. Purchased for 600,000');
       `
-
-      
       )
       .then(() => {
         console.log("DB seeded!");
@@ -169,7 +168,7 @@ module.exports = {
       .catch((err) => console.log("error seeding DB", err));
   },
 
-  changeSearchValues: (req, res) => {
+  searchHorses: (req, res) => {
     const { searchcat, searchtext } = req.query;
     sequelize
       .query(
