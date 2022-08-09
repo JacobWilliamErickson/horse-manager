@@ -250,7 +250,14 @@ select {
     font-size: x-large;
     overflow-y: visible;
    }
-   body .navbar b{
+   
+}
+
+@media only screen and (max-width: 600px) {
+  #journalbox{
+    width: 100%;
+  }
+  body .navbar b{
     float: right;
     display: block;
     color: black;
@@ -275,4 +282,11 @@ select {
 #logo {
   height: 15px;
 }
+.journal-card{
+  width: 80vw;
+  font-size: xx-small;
+ }
+ .journal-card-header{
+  font-size: x-small;
+ }
 }
