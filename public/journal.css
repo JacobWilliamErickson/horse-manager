@@ -248,5 +248,6 @@ select {
    #summary{
     color: black;
     font-size: x-large;
+    overflow-y: visible;
    }
 }
