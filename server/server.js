@@ -3,7 +3,6 @@ const express = require('express')
 const path = require("path");
 const app = express()
 const cors = require('cors')
-const {SERVER_PORT} = process.env || 4004
 const {} = require('./controller.js')
 const baseURL = `/api/map.html`
 const {getHorses,createHorse,updateHorse,seed,moveHorse,changeSearchValues,getJournals,submitentry}= require('./controller')
@@ -24,5 +23,5 @@ app.put(`${baseURL}`,moveHorse)
 app.post(`${baseURL}`,createHorse)
 app.post(`/api/journal.html`,submitentry)
 app.get('/api/landing.html',changeSearchValues)
-
-app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))
+const port = process.env.PORT || 4004
+app.listen(port, () => console.log(`up on ${port}`))

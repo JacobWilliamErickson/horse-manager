@@ -1,3 +1,7 @@
+
+
+
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 50px;
@@ -88,7 +92,7 @@ item {
   color: black;
   border: solid 2px black !important;
 }
-barn1 {
+.barn1 {
   color: #f2f2f2f2;
   font-weight: bold;
   font-size: larger;
@@ -99,7 +103,7 @@ barn1 {
   background-image: url("./brownwood.jpg");
   border-radius: 5%;
   width: 35vw;
-  height: 73vh;
+  height: 70vh;
   padding: 2vh;
   padding-top: 1vh;
   margin: 2vh;
@@ -112,7 +116,7 @@ barn1 {
   align-items: center;
 }
 
-barn2 {
+.barn2 {
   color: #f2f2f2;
   font-size: larger;
   font-weight: bold;
@@ -121,12 +125,11 @@ barn2 {
   justify-content: center;
   align-items: center;
   background-image: url("./redwoodbarn.jpg");
-  background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
   border-radius: 5%;
   width: 35vw;
-  height: 73vh;
+  height: 70vh;
   padding: 2vh;
   padding-top: 1vh;
   margin: 2vh;
@@ -191,4 +194,66 @@ form {
 .horse-card-info {
   display: flex;
   align-items: center;
+}
+@media only screen and (max-width: 600px) {
+  body .horse-info p{
+    margin: 0;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    line-height: .8;
+  }
+  body .navbar b{
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-right: 25px;
+    padding-left: 5px;
+    text-decoration: none;
+    transition-duration: 0.25s;
+  }
+  body .navbar{
+  font-size: x-small;
+ }
+  body .barns{
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  body .horse-card{
+    font-size: xx-small;
+    width: 37vw;
+    height: 12vh;
+  }
+  #barn1 {
+    margin: 0;
+    margin-bottom: 10px;
+    width: 90vw;
+    height: 100vh;
+  }
+  #barn2 {
+    margin: 0;
+    margin-bottom: 10px;
+    width: 90vw;
+    height: 100vh;
+  }
+  body{
+    width: 100%;
+    margin-top: 45px;
+  }
+  .navbar{
+    font-size: small;
+  }
+  #logo {
+    height: 15px;
+  }
+ .drop-zone{
+  width: 40vw;
+    height: 14vh;
+ }
 }

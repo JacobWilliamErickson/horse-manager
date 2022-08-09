@@ -118,10 +118,50 @@ module.exports = {
 
 
 
+      insert into journal_table(horse_id,title,date,type,summary) values 
+      (8,'Deworming','2017-06-01T08:30'
+      ,'health','The farrier came and got h feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (8,'Farrier Visit','2022-06-01T08:30'
+      ,'health','The thicker shoes are doing well, just a trim today.'),
+      (8,'Farrier Visit','2022-04-20T08:30'
+      ,'health','The farrier came and got her feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (12,'Farrier Visit','2022-06-01T08:30'
+      ,'health','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (3,'Farrier Visit','2022-06-01T08:30'
+      ,'health','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
 
 
-      insert into journal_table(horse_id,title,date,type,summary) values (1,'He got shoes','2017-06-01T08:30'
-      ,'health','The farrier came and got his feet looking good again, requested we put on thicked shoes so we are trying it out');
+
+      (4,'Farrier Visit','2022-06-01T08:30'
+      ,'training','Our training session today was pretty great. We are transitioning from a snaffle to correction bit which she is taking well, She is still very cowey and plan to work her on a few cows tomorrow'),
+      (8,'Farrier Visit','2022-06-01T08:30'
+      ,'training','The thicker shoes are doing well, just a trim today. '),
+      (6,'Farrier Visit','2022-06-01T08:30'
+      ,'training','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (7,'Farrier Visit','2022-06-01T08:30'
+      ,'training','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (8,'Farrier Visit','2022-06-01T08:30'
+      ,'training','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (1,'Farrier Visit','2022-06-01T08:30'
+      ,'training','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (2,'Farrier Visit','2022-06-01T08:30'
+      ,'training','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (4,'Farrier Visit','2022-06-01T08:30'
+      ,'training','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+
+
+      (4,'Farrier Visit','2022-06-01T08:30'
+      ,'other','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (2,'Farrier Visit','2022-06-01T08:30'
+      ,'other','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (7,'Farrier Visit','2022-06-01T08:30'
+      ,'other','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (11,'Farrier Visit','2022-06-01T08:30'
+      ,'other','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (8,'Farrier Visit','2022-06-01T08:30'
+      ,'other','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out'),
+      (4,'Farrier Visit','2022-06-01T08:30'
+      ,'other','The farrier came and got his feet looking good again, requested we put on thicker shoes so we are trying it out');
       `
 
       
