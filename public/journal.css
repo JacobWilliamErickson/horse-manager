@@ -282,11 +282,11 @@ select {
 #logo {
   height: 15px;
 }
-.journal-card{
+body .journal-card{
   width: 80vw;
   font-size: xx-small;
  }
- .journal-card-header{
+ body .journal-card-header{
   font-size: x-small;
  }
 }
