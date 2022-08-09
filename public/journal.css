@@ -311,4 +311,7 @@ select {
  #searchtext{
   width: 35vw;
  }
+ #summary{
+  margin-bottom: 10px;
+ }
 }
