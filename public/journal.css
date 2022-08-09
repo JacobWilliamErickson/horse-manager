@@ -313,5 +313,6 @@ select {
  }
  #summary{
   margin-bottom: 10px;
+  overflow-y: scroll;
  }
 }
