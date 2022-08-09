@@ -1,3 +1,6 @@
+h1{
+  margin-top:60px;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 45px;
@@ -136,6 +139,9 @@ select {
 
 
 @media only screen and (max-width: 600px) {
+  .hero{
+    background-image: url("horsebackmobile.jpg");
+  }
   .horse-cards{
     display: flex;
     flex-direction: column;
@@ -164,7 +170,7 @@ select {
  }
  body{
   width: 100%;
-  margin-top: 45px;
+  margin-top: 0px;
 }
 .navbar{
   font-size: small;
