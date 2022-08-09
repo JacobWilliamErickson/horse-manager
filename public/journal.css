@@ -250,4 +250,29 @@ select {
     font-size: x-large;
     overflow-y: visible;
    }
+   body .navbar b{
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-right: 25px;
+    padding-left: 5px;
+    text-decoration: none;
+    transition-duration: 0.25s;
+  }
+  body .navbar{
+  font-size: x-small;
+ }
+ body{
+  width: 100%;
+  margin-top: 45px;
+}
+.navbar{
+  font-size: small;
+}
+#logo {
+  height: 15px;
+}
 }
