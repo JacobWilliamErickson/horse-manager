@@ -136,9 +136,33 @@ select {
 
 
 @media only screen and (max-width: 600px) {
+  .horse-cards{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    width: 100%;
+    align-items: flex-start;
+   }
   .horse-card {
     font-size: xx-small;
     width: 80vw;
   }
- 
+  body .navbar b{
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-right: 25px;
+    padding-left: 5px;
+    text-decoration: none;
+    transition-duration: 0.25s;
+  }
+  body .navbar{
+  font-size: x-small;
+ }
+ body{
+  margin-top: 50px;
+ }
 }
