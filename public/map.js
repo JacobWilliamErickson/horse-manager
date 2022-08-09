@@ -1,6 +1,6 @@
 const horsesContainer = document.querySelector("#freehorses");
 const form = document.querySelector("#newHorse");
-const baseURL = `http://localhost:4004/api/map.html`;
+const baseURL = `/api/map.html`;
 function displayHorses(arr) {
   horsesContainer.innerHTML = ``;
   for (let i = 0; i < arr.length; i++) {

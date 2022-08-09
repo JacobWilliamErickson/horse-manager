@@ -16,7 +16,7 @@ function submitsearchHandler(e) {
     e.preventDefault();
     let searchcat = document.querySelector("#searchcat");
     let searchtext = document.querySelector("#searchtext");
-    axios.get(`http://localhost:4004/api/landing.html?searchcat=${searchcat.value}&searchtext=${searchtext.value}`,).then(horsesCallback).catch(errCallback);
+    axios.get(`/api/landing.html?searchcat=${searchcat.value}&searchtext=${searchtext.value}`,).then(horsesCallback).catch(errCallback);
     searchcat.value = "";
     searchtext.value = "";
   }

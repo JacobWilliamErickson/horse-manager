@@ -1,4 +1,4 @@
-const baseURL = `http://localhost:4004/api/map.html`;
+const baseURL = `/api/map.html`;
 let horsedropdown = document.querySelector('#horse-drop-down')
 const errCallback = (err) => console.log(err);
 let journalbox = document.querySelector('#journalbox')
@@ -29,7 +29,7 @@ function submitHandler(e) {
   }
 
   const submitentry = async (body) => {
-    await axios.post('http://localhost:4004/api/journal.html', body).then(journalCallback).catch(errCallback);
+    await axios.post('/api/journal.html', body).then(journalCallback).catch(errCallback);
     getAllJournals();
   };
 
@@ -73,13 +73,13 @@ function updatedropdown(arr) {
         axios.get(baseURL).then(horsesCallback).catch(errCallback);
       };
 const getAllJournals = () => {
-        axios.get('http://localhost:4004/api/journal.html').then(journalCallback).catch(errCallback);
+        axios.get('/api/journal.html').then(journalCallback).catch(errCallback);
       };
 function submitsearchHandler(e) {
         e.preventDefault();
         let searchcat = document.querySelector("#searchcat");
         let searchtext = document.querySelector("#searchtext");
-        axios.get(`http://localhost:4004/api/journal.html?searchcat=${searchcat.value}&searchtext=${searchtext.value}`,).then(journalCallback).catch(errCallback);
+        axios.get(`/api/journal.html?searchcat=${searchcat.value}&searchtext=${searchtext.value}`,).then(journalCallback).catch(errCallback);
         searchcat.value = "";
         searchtext.value = "";
       }
