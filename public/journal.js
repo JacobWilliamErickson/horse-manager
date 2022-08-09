@@ -57,7 +57,7 @@ function updatedropdown(arr) {
     <div class = 'journal-card-info'>
     <header class = 'journal-card-header'>
 
-        <p id="horse"> Horse: ${journal.name} </p> 
+        <p id="horse">${journal.name} </p> 
         <p id="title"> Title: ${journal.title} </p> 
         <p id="date"> Date: ${journal.date} </p> 
         <p id="type"> Type: ${journal.type} </p> 

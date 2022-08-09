@@ -100,7 +100,25 @@ module.exports = {
           journal_id serial primary key
           );
 
-      insert into horse_table (name,barnname,owner,age,imageURL,position) values ('Midnight Sun','Sunny','Roger','10','horse4.jpg',0),('SunKnight Mid','Middy','Roger','19','horse2.jpg',1);
+      insert into horse_table (name,barnname,owner,age,imageURL,position) values ('Midnight Sun','Sunny','Roger','10','horse4.jpg',0),
+      ('SunKnight Mid','Middy','Roger','19','horse2.jpg',1),
+      ('High Brow Cat','Brow','Jacob','35','https://chtolive.com/wp-content/uploads/2019/12/IMG_5067.jpg',0),
+      ('Smart Little Lena ','Lena','Steven','17','https://weatherfordequine.com/wp-content/uploads/2020/12/S-20150307144449_02.jpg',0),
+      ('Alaska','ally','Jacob','4','https://thumbs.dreamstime.com/b/portrait-gray-arabian-horse-head-light-background-profile-pictures-97890060.jpg',0),
+      ('Metallic Cat','Cat','Rex','25','https://stallionregisterdirectory.com/wp-content/uploads/2020/12/SRMMG_200800_00220-880x880.jpg',0),
+      ('Boon too Suen','Boon','Suzanne','16','https://www.6666ranch.com/wp-content/uploads/stallions/BoonTooSuen11-scaled.jpg',0),
+      ('Dual Rey','Rey','Linda','14','https://stallionregisterdirectory.com/wp-content/uploads/2020/12/SRMMG_200800_00174-880x880.jpg',0),
+      ('Rockin W','Rockin','Brock','14','https://equine-services.de/attachments/Image/Rocking-W_1.jpg?template=generic',0),
+      ('Doc Quixote','Doc','Juan','2','https://upload.wikimedia.org/wikipedia/commons/9/91/Doc_Quixote.jpg',0),
+      ('Two Eyed Jack','Jack','Suzanne','8','https://aqhadigital.panoramac.com/AMH/AMHRV/2019_03/pgs_0/F-0004/graphics/TwoeyedJack002.jpg',0),
+      ('Hickory Holly Time','Holly','Brock','7','https://www.perfecthorseauctions.com/user_images/2017/7634346.jpg',0),
+      ('Lightning with fire eyes','Palo','Juan','7','https://www.deephollowranch.com/wp-content/uploads/2021/06/What-Exactly-Is-a-Palomino-Horse.jpg',0),
+      ('Apache','Patches','Linda','19','https://www.tophorse.com.au/images/ResizedImages/31-12-12-138511Image2_w577h600.jpg',0);
+
+
+
+
+
 
       insert into journal_table(horse_id,title,date,type,summary) values (1,'He got shoes','2017-06-01T08:30'
       ,'health','The farrier came and got his feet looking good again, requested we put on thicked shoes so we are trying it out');
