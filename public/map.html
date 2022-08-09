@@ -15,7 +15,7 @@
       <b>HorseManager</b>
       <img id="logo" src="horselogo.png" alt="horse icon" />
     </nav>
-    <div class="barns">
+    <section class="barns" id ="barns">
       <section id = 'barn1' class = 'barn1'>
         Brown Barn
         <row>
@@ -62,9 +62,10 @@
           <item class="drop-zone empty" id="stall20" data-stall="20"><p>20</p></item>
         </row>
       </section>
-    </div>
+    </section>
     <section class="drop-zone empty" id="freehorses" data-stall="0"><p></p></section>
-    <form id="newHorse">
+    <button id = "printbtn">Print Map</button>
+    <form id="newHorse" class ="newHorse">
       <input type="text" id="name" placeholder="Name:" />
       <input type="text" id="barnname" placeholder="Barn Name:" />
       <input type="text" id="owner" placeholder="Who is the Owner?" />

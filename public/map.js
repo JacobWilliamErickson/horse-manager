@@ -144,3 +144,8 @@ for (const dropZone of document.querySelectorAll(".drop-zone")) {
     }
   });
 }
+
+const printbtn = document.querySelector('#printbtn')
+printbtn.addEventListener('click', () => {
+  window.print()
+})

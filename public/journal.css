@@ -121,7 +121,17 @@ body {
 header{
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 45vw;
+}
+footer{
+  width: 45vw;
+  display: flex;
+  flex-direction: column;
+}
+header input, header select, header button{
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 input{
   border-radius: 10px;
@@ -201,6 +211,42 @@ select {
 .search-container button:hover {
   background: #ccc;
 }
-#horse{
+#horse,#title{
   font-weight: bolder;
+}
+
+
+
+@media print {
+  body{
+    color: black;
+  }
+  #hero,header,#printbtn,.navbar,#search {
+    display: none;
+  }
+   .journal-card{
+    margin: 10px;
+    width: 90vw;
+    height: 90vh;
+    page-break-after: always;
+    box-shadow: none;
+    border: 2px solid black;
+    
+   }
+   .journal-card-header p{
+
+    font-size: x-large;
+    margin: 2vh;
+   }
+   .journal-card-header{
+    color: black;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+   #summary{
+    color: black;
+    font-size: x-large;
+   }
 }

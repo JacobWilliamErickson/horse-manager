@@ -58,7 +58,7 @@ function updatedropdown(arr) {
     <header class = 'journal-card-header'>
 
         <p id="horse">${journal.name} </p> 
-        <p id="title"> Title: ${journal.title} </p> 
+        <p id="title"> ${journal.title} </p> 
         <p id="date"> Date: ${journal.date} </p> 
         <p id="type"> Type: ${journal.type} </p> 
     </header>
@@ -91,3 +91,7 @@ window.addEventListener("load" , (event) => {
 horsedropdown.addEventListener('change',()=> console.log(horsedropdown.value))
 form.addEventListener("submit", submitHandler);
 searchform.addEventListener("submit", submitsearchHandler);
+const printbtn = document.querySelector('#journal-print-btn')
+printbtn.addEventListener('click', () => {
+  window.print()
+})
