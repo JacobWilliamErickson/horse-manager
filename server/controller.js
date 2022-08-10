@@ -133,17 +133,17 @@ module.exports = {
       ,'health','High Brow kicked a fence and cut just above his right hind leg, no muscles cut just flesh, just one stich and wrapped up. Still sound to ride and train. We need to rewrap weekly'),
 
 
-      (4,'Flag Day / Snaffle','2022-08-15T08:30'
+      (4,'Flag Day / Snaffle','2021-08-15T08:30'
       ,'training','Our training session today was pretty great. We are transitioning from a snaffle to correction bit which she is taking well, She is still very cowey and plan to work her on a few cows tomorrow'),
       (8,'Cow Day','2022-06-17T08:30'
       ,'training','Rey had the best work of the cows, he is loose through the shoulders which is big improvement'),
       (6,'Cow Day','2022-06-17T08:30'
       ,'training','The cows were tired when we got to Metallic which made for a difficult work, Cows again tommorow'),
-      (7,'Flag Day','2022-08-15T08:30'
+      (7,'Flag Day','2021-08-15T08:30'
       ,'training','Routine flag for Boon, needs help staying in on the flag, but will send and stop with ease'),
       (8,'Cow / Bison','2022-01-07T08:30'
       ,'training','Dual Rey continues to stand as a contender for the top, His aggression against the bison was impressive. Work at the show with nose-chain'),
-      (1,'Flag Day','2022-08-15T08:30'
+      (1,'Flag Day','2021-08-15T08:30'
       ,'training','Midnight had a routine flag day, no further comments'),
       (2,'Cow / Bison Day','2022-01-07T08:30'
       ,'training','Sunnys first day training with the Bison, It was pretty timid which is unusual from the cows but will need some more bison time'),
