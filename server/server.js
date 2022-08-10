@@ -16,7 +16,7 @@ app.post('/seed', seed)
 app.get(`${baseURL}`,getHorses)
 app.get(`/api/journal.html`,getJournals)
 app.put(`${baseURL}`,moveHorse)
-app.post(`${baseURL}`,createHorse)
+app.post(`/api/map.html`,createHorse)
 app.post(`/api/journal.html`,submitentry)
 app.get('/api/landing.html',searchHorses)
 const port = process.env.PORT || 4004
